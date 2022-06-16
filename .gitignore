@@ -121,6 +121,7 @@ test*.*
 
 src/RelaxedIK/Config/collision_files/*
 !src/RelaxedIK/Config/collision_files/collision_example.yaml
+!src/RelaxedIK/Config/collision_files/crash_collision.yaml
 !src/RelaxedIK/Config/collision_files/README
 src/RelaxedIK/Config/collision_nn/*
 !src/RelaxedIK/Config/collision_nn/README
