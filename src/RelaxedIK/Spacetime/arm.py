@@ -472,11 +472,11 @@ class Arm(robot_function.RobotFunction):
         eePt = N.array(ptArr[-1])
         for i,a in enumerate(self.axes):
             disp = eePt - N.array(ptArr[i])
-            if a == 'x':
+            if a == 'x' or a == '-x':
                 pAxis = N.array(rotMatArr[i][:,0])
-            elif a == 'y':
+            elif a == 'y' or a == '-y':
                 pAxis = N.array(rotMatArr[i][:,1])
-            elif a == 'z':
+            elif a == 'z' or a == '-z':
                 pAxis = N.array(rotMatArr[i][:,2])
 
             self.jacobianMat[0:3,i] = N.cross(pAxis,disp)
