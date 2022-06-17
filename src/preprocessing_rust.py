@@ -25,7 +25,7 @@ import sys, string, os
 import time
 from RelaxedIK.Utils.file_utils import *
 import yaml
-import pickle
+import cPickle as pickle
 from sklearn.neural_network import MLPClassifier, MLPRegressor
 from sklearn.externals import joblib
 
@@ -167,7 +167,10 @@ class PreprocessorEngine:
                 try_idx += 1
             chosen_idxs.append(file_idx)
 
-            pk = pickle.load(open(dir + '/{}.pkl'.format(file_idx)))
+            pfile_path = dir + '/{}.pkl'.format(file_idx)
+            with open(pfile_path, 'rb') as pickle_file:
+                pk = pickle.load(pickle_file)
+
             for i in xrange(len(pk[0])):
                 self.states.append(pk[0][i])
                 self.jt_pts.append(pk[1][i])
